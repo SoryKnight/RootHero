@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MedievalStoneDark
+  m_Name: StoneDark
   m_Shader: {fileID: 4800000, guid: 8fa84e1c8f3a97b4bb416e8eb087630e, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -76,13 +76,13 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _HighIntensity: 1.5
+    - _HighIntensity: 5
     - _LightScalar: 1
     - _LowIntensity: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineSize: 18.33
+    - _OutlineSize: 20
     - _Parallax: 0.02
     - _RampLevels: 2
     - _RimAlpha: 0
@@ -94,11 +94,11 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.16814269, g: 0.13274297, b: 0.1792453, a: 1}
+    - _Color: {r: 0.1009217, g: 0.1182329, b: 0.1279056, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HighColor: {r: 1, g: 1, b: 1, a: 1}
-    - _LowColor: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HighColor: {r: 0.56599325, g: 0.58244187, b: 0.745283, a: 1}
+    - _LowColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+    - _OutlineColor: {r: 0.019001415, g: 0.040253196, b: 0.066037714, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
