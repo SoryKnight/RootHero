@@ -76,7 +76,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _HighIntensity: 3.6
+    - _HighIntensity: 5.79
     - _LightScalar: 1
     - _LowIntensity: 1.6
     - _Metallic: 0
@@ -85,9 +85,9 @@ Material:
     - _OutlineSize: 20
     - _Parallax: 0.02
     - _RampLevels: 2
-    - _RimAlpha: 0.2
+    - _RimAlpha: 1
     - _RimDropOff: 0
-    - _RimPower: 0.62
+    - _RimPower: 0.764
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -97,7 +97,7 @@ Material:
     - _Color: {r: 0.4012643, g: 0.4784925, b: 0.5173345, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
-    - _HighColor: {r: 1, g: 1, b: 1, a: 1}
+    - _HighColor: {r: 0.7980598, g: 0.9051132, b: 0.9245283, a: 1}
     - _LowColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
