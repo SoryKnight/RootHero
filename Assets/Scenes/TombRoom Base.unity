@@ -1129,11 +1129,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 03ea48d297c21614d97a59f99f5a0ffd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.253
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 03ea48d297c21614d97a59f99f5a0ffd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.656
+      value: -2.42
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 03ea48d297c21614d97a59f99f5a0ffd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1141,23 +1141,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 03ea48d297c21614d97a59f99f5a0ffd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5609856
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 03ea48d297c21614d97a59f99f5a0ffd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.4304592
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 03ea48d297c21614d97a59f99f5a0ffd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5609856
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 03ea48d297c21614d97a59f99f5a0ffd, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.4304592
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 03ea48d297c21614d97a59f99f5a0ffd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -75
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 03ea48d297c21614d97a59f99f5a0ffd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1441,6 +1441,7 @@ GameObject:
   - component: {fileID: 1151668939}
   - component: {fileID: 1151668938}
   - component: {fileID: 1151668937}
+  - component: {fileID: 1151668941}
   m_Layer: 0
   m_Name: TriggerDoor2
   m_TagString: Untagged
@@ -1539,6 +1540,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151668935}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1151668941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151668935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7855c40c3822fe74ab0740c50309484d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ataud: {fileID: 1757767036}
+  AtaudAbierto: {fileID: 5924055288208398601}
 --- !u!4 &1178658949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 73e6fd8bb42225a4b9d578e33820cb4d, type: 3}
@@ -3706,6 +3721,7 @@ Transform:
   - {fileID: 5876001448229195195}
   - {fileID: 5876001448816852283}
   - {fileID: 5876001447001412018}
+  - {fileID: 5924055288208398601}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4824,6 +4840,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1acdb246e28bd14ebf4b574b7cd3d7f, type: 3}
   m_PrefabInstance: {fileID: 5876001448156539138}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &5924055288208398601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6448495274324116403}
+  m_LocalRotation: {x: -0.4304592, y: 0.5609856, z: 0.4304592, w: 0.5609856}
+  m_LocalPosition: {x: 1.253, y: -2.656, z: -2.83}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5876001447736891846}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -75, y: 90, z: 0}
+--- !u!1 &6448495274324116403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5924055288208398601}
+  m_Layer: 0
+  m_Name: tumbaAbierta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &7171354316828689142
 PrefabInstance:
   m_ObjectHideFlags: 0
