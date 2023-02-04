@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571343, b: 0.30692208, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -709,6 +709,11 @@ Transform:
   m_Father: {fileID: 1567052913}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1398182413 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3741964795106327508, guid: 89d366312add2194c837af4a1b53da1e, type: 3}
+  m_PrefabInstance: {fileID: 3775309902825170652}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1562248211
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,6 +892,53 @@ Transform:
   m_Father: {fileID: 1567052913}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1891527439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3775309903344073611, guid: 89d366312add2194c837af4a1b53da1e, type: 3}
+  m_PrefabInstance: {fileID: 3775309902825170652}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &1891527440
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891527439}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2.25
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.1
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1891527441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891527439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ea79a4705caad46b3b3c7054a62d6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1891527440}
+  speed: 8
+  jumpForce: 6
+  ableToMakeADoubleJump: 1
+  animator: {fileID: 0}
+  model: {fileID: 1398182413}
+  body: {fileID: 1891527442}
+--- !u!54 &1891527442 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3775309903344073600, guid: 89d366312add2194c837af4a1b53da1e, type: 3}
+  m_PrefabInstance: {fileID: 3775309902825170652}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2110866990
 GameObject:
   m_ObjectHideFlags: 0
