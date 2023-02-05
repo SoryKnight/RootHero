@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
     public int maxHealth;
     public bool patroller = false;
     public int patrolLength = 4;
-    private float cooldown;
+    public float cooldown;
     private Vector3 patrolPointMax;
     private Vector3 patrolPointMin;
 
