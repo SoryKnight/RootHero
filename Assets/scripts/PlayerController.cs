@@ -6,10 +6,14 @@ public class PlayerController : MonoBehaviour
 {
     public CharacterController controller;
     private Vector3 direction;
+    public int attackDamage = 25;
+    public int maxHealth = 200;
+    private int health;
     public float speed = 8;
     public float jumpForce = 6;
     public float gravity = -10;
     public bool ableToMakeADoubleJump = true;
+    public float checkerY = -1.25f;
 
     public Animator animator;
     public Transform model;
@@ -18,7 +22,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -45,17 +49,28 @@ public class PlayerController : MonoBehaviour
             if(Input.GetMouseButtonDown(0))
             {
                 if(!(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") || animator.GetAnimatorTransitionInfo(0).IsName("Idle -> Attack")))
+                {
                     animator.SetTrigger("Attack");
+                    Attack();
+                }
             }
 
             if (Input.GetKeyDown(KeyCode.G))
             {
                 Debug.Log("DEBUG KEY!");
                 Debug.Log(model.forward);
-                Vector3 point = transform.position + model.forward + new Vector3(0.0f, -1.25f, 0.0f);
+                Vector3 point = transform.position + model.forward + new Vector3(0.0f, checkerY, 0.0f);
                 Debug.Log(point);
                 Collider[] intersecting = Physics.OverlapSphere(point, 0.05f);
                 Debug.Log(intersecting.Length);
+                Debug.Log("LINECAST!");
+                Vector3 end = transform.position + model.forward * 2;
+                Debug.Log(Physics.Linecast(transform.position, end));
+            }
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                Debug.Log("HEALTH KEY!");
+                health = 200;
             }
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -95,6 +110,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void Attack()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            if(Vector3.Distance(enemy.transform.position, transform.position) < 2)
+            {
+                Debug.Log("Enemy in range");
+                enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
+            }
+        }
+    }
     private void DoubleJump()
     {
         //Double Jump
@@ -107,6 +134,28 @@ public class PlayerController : MonoBehaviour
         //Jump
         animator.SetTrigger("Jump");
         direction.y = jumpForce;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        Debug.Log(health);
+
+        if(health < 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        //play a die animation
+        animator.SetTrigger("Die");
+
+        //disable the script and the collider
+        GetComponent<CharacterController>().enabled = false;
+        Destroy(gameObject, 3);
+        this.enabled = false;
     }
 
 }
