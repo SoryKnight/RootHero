@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     private float checkerY = -1f;
 
     public int attackDamage = 25;
+    public bool ranged = false;
     public int maxHealth;
     public bool patroller = false;
     public int patrolLength = 4;
@@ -25,6 +26,11 @@ public class EnemyController : MonoBehaviour
 
     public Animator animator;
     public Transform model;
+
+    public GameObject fireBall;
+    public Transform shootPoint;
+    public float fireBallSpeed = 600;
+    public bool staticEnemy = false;
 
     void Start()
     {
@@ -110,6 +116,8 @@ public class EnemyController : MonoBehaviour
 
     private bool Move(float amount)
     {
+        if(staticEnemy)
+            return true;
         if(EdgeDetector())
         {
             if(model.forward.x * amount > 0)
@@ -157,11 +165,31 @@ public class EnemyController : MonoBehaviour
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players)
         {
-            if(Vector3.Distance(player.transform.position, transform.position) < 2)
+            if(Vector3.Distance(player.transform.position, transform.position) < attackRange)
             {
-                player.GetComponent<PlayerController>().TakeDamage(attackDamage);
+                if(ranged)
+                {
+                    Debug.Log("Shooting");
+                    FireBallAttack(player.transform.position);
+                }
+                else
+                {
+                    player.GetComponent<PlayerController>().TakeDamage(attackDamage);
+                }
             }
         }
+    }
+
+    public void FireBallAttack(Vector3 target)
+    {
+        GameObject ball  = Instantiate(fireBall, shootPoint.position, Quaternion.identity);
+        Vector3 f = shootPoint.position;
+        Vector3 vector = new Vector3(target.x - f.x, target.y + 2 - f.y, target.z - f.z);
+        Debug.Log(f);
+        Debug.Log(target);
+        Debug.Log(vector);
+        ball.GetComponent<Rigidbody>().AddForce( vector * fireBallSpeed);
+
     }
 
     private void Die()
