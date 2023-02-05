@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            
+            Debug.Log("Exiting!");
+            Application.Quit();
+        }
         //Take the horizontal input to move the player
         float hInput = Input.GetAxis("Horizontal") * (trait == "Dyslexia" ? -1 : 1);
         direction.x = hInput * speed;
