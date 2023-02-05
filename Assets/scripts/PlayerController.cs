@@ -55,6 +55,18 @@ public class PlayerController : MonoBehaviour
                 Collider[] intersecting = Physics.OverlapSphere(point, 0.05f);
                 Debug.Log(intersecting.Length);
             }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                Debug.Log("Turn UP!");
+                Quaternion newRotation = Quaternion.LookRotation(new Vector3(0, 0, 1));
+                model.rotation = newRotation;
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                Debug.Log("Turn DOWN!");
+                Quaternion newRotation = Quaternion.LookRotation(new Vector3(0, 0, -1));
+                model.rotation = newRotation;
+            }
         }
         else
         {
