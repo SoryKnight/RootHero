@@ -38,12 +38,13 @@ public class PlayerController : MonoBehaviour
             ableToMakeADoubleJump = true;
             if(Input.GetButton("Jump"))
             {
-                Jump();
+                if(!(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") || animator.GetAnimatorTransitionInfo(0).IsName("Idle -> Attack")))
+                    Jump();
             }
 
             if(Input.GetMouseButtonDown(0))
             {
-                if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+                if(!(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") || animator.GetAnimatorTransitionInfo(0).IsName("Idle -> Attack")))
                     animator.SetTrigger("Attack");
             }
 
