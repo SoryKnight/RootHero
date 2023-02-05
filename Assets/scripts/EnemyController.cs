@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
     public int maxHealth;
     public bool patroller = false;
     public int patrolLength = 4;
-    private int cooldown;
+    private float cooldown;
     private Vector3 patrolPointMax;
     private Vector3 patrolPointMin;
 
@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
         health = maxHealth;
         patrolPointMax = transform.position + new Vector3(patrolLength / 2.0f, 0.0f, 0.0f);
         patrolPointMin = transform.position - new Vector3(patrolLength / 2.0f, 0.0f, 0.0f);
-        cooldown = 0;
+        cooldown = 0f;
     }
 
     // Update is called once per frame
@@ -82,9 +82,9 @@ public class EnemyController : MonoBehaviour
         }
         if(currentState == "AttackState")
         {
-            if(cooldown <= 0)
+            if(cooldown <= 0f)
             {
-                cooldown = 2;
+                cooldown = 2f;
                 animator.SetTrigger("Attack");
                 Attack();
             }
