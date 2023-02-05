@@ -117,9 +117,9 @@ public class PlayerController : MonoBehaviour
         currCooldown -= Time.deltaTime;
 
         if(health < 0)
-            {
-                Die();
-            }
+        {
+            Die();
+        }
 
     }
 
