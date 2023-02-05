@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public int attackDamage = 25;
     public int maxHealth = 200;
     private int health;
+    private float deathCooldown = 2.0f;
     public float speed = 8;
     public float jumpForce = 6;
     public float gravity = -10;
@@ -108,6 +110,11 @@ public class PlayerController : MonoBehaviour
         if (transform.position.z != -1.5f)
             transform.position = new Vector3(transform.position.x, transform.position.y, -1.5f);
 
+        if(health < 0)
+            {
+                Die();
+            }
+
     }
 
     private void Attack()
@@ -141,21 +148,25 @@ public class PlayerController : MonoBehaviour
         health -= damage;
         Debug.Log(health);
 
-        if(health < 0)
-        {
-            Die();
-        }
     }
 
     private void Die()
     {
-        //play a die animation
-        animator.SetTrigger("Die");
+        if (deathCooldown == 2.0f){
+            //play a die animation
+            animator.SetTrigger("Die");
+        }else if(deathCooldown <= 0.0f){
+            //disable the script and the collider
+            GetComponent<CharacterController>().enabled = false;
+            Destroy(gameObject, 3);
+            this.enabled = false;
+            SceneManager.LoadScene("GameOver");
+        }
 
-        //disable the script and the collider
-        GetComponent<CharacterController>().enabled = false;
-        Destroy(gameObject, 3);
-        this.enabled = false;
+       
+        deathCooldown -= Time.deltaTime;
+
+
     }
 
 }
