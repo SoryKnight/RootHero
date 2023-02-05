@@ -23,7 +23,7 @@ public class ExitScene : MonoBehaviour
     }
 
     void  Update() {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && triggered == true){
+        if ((Input.GetAxis("Vertical") > 0) && triggered == true){
             SceneManager.LoadScene("FinalBoss");
         }
 

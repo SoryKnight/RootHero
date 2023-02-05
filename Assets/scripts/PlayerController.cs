@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            
+            Debug.Log("Exiting!");
+            Application.Quit();
+        }
         //Take the horizontal input to move the player
         float hInput = Input.GetAxis("Horizontal") * (trait == "Dyslexia" ? -1 : 1);
         direction.x = hInput * speed;
@@ -78,13 +83,13 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("HEALTH KEY!");
                 health = 200;
             }
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetAxis("Vertical") > 0)
             {
                 Debug.Log("Turn UP!");
                 Quaternion newRotation = Quaternion.LookRotation(new Vector3(0, 0, 1));
                 model.rotation = newRotation;
             }
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetAxis("Vertical") < 0)
             {
                 Debug.Log("Turn DOWN!");
                 Quaternion newRotation = Quaternion.LookRotation(new Vector3(0, 0, -1));

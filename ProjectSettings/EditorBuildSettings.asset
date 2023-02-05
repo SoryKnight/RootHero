@@ -4,5 +4,32 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 60cfa9449495a6a468e0f5d79d04f85d
+  - enabled: 1
+    path: Assets/Scenes/Nivel1.unity
+    guid: 9c866b564d115cb41b0d7b247f997f6f
+  - enabled: 1
+    path: Assets/Scenes/TombRoom 1-2.unity
+    guid: cdeff25ff14074c4e92f1cdc4b11043e
+  - enabled: 1
+    path: Assets/Scenes/Nivel2.unity
+    guid: 698e480b38fd1b94b983b94c68eb01e3
+  - enabled: 1
+    path: Assets/Scenes/TombRoom 2-3.unity
+    guid: d3a162c1b05072542b5a80d3a7ab2ca1
+  - enabled: 1
+    path: Assets/Scenes/Nivel3.unity
+    guid: 87182edfc281b0645b87c2d441d4d935
+  - enabled: 1
+    path: Assets/Scenes/ExitCrypt.unity
+    guid: b2cedcea968b1fc469e0b70cf9343bd4
+  - enabled: 1
+    path: Assets/Scenes/FinalBoss.unity
+    guid: 66a8060d031eb3c46862107bd310243b
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 88860885a85d1e64dabafe60e25ef23d
   m_configObjects: {}
