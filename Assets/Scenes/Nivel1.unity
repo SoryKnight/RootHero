@@ -26025,6 +26025,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8600399417785076954, guid: fe61753beea92cb288c8ea89027020cf, type: 3}
+      propertyPath: cooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8600399417785076955, guid: fe61753beea92cb288c8ea89027020cf, type: 3}
       propertyPath: m_Name
       value: EnemyCavemanSkeleton
