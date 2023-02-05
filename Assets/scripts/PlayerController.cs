@@ -18,9 +18,13 @@ public class PlayerController : MonoBehaviour
     public float checkerY = -1.25f;
     public float cooldown = 1f;
     private float currCooldown;
+    public bool ranged = false;
+    public float fireBallSpeed = 100;
 
     public Animator animator;
     public Transform model;
+    public GameObject fireBall;
+    public Transform shootPoint;
 
     public static string trait = "None";
     // Start is called before the first frame update
@@ -132,14 +136,29 @@ public class PlayerController : MonoBehaviour
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
-        {
-            if(Vector3.Distance(enemy.transform.position, transform.position) < 2)
+        {   
+            if(ranged && Vector3.Distance(enemy.transform.position, transform.position) < 8)
+                FireBallAttack(enemy.transform.position);
+            else if(Vector3.Distance(enemy.transform.position, transform.position) < 2)
             {
                 Debug.Log("Enemy in range");
                 enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
             }
         }
     }
+
+    public void FireBallAttack(Vector3 target)
+    {
+        GameObject ball  = Instantiate(fireBall, shootPoint.position, Quaternion.identity);
+        Vector3 f = shootPoint.position;
+        Vector3 vector = new Vector3(target.x - f.x, target.y + 2 - f.y, target.z - f.z);
+        Debug.Log(f);
+        Debug.Log(target);
+        Debug.Log(vector);
+        ball.GetComponent<Rigidbody>().AddForce( vector * fireBallSpeed);
+
+    }
+
     private void DoubleJump()
     {
         //Double Jump

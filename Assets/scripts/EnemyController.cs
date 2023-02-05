@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject fireBall;
     public Transform shootPoint;
-    public float fireBallSpeed = 600;
+    public float fireBallSpeed = 100;
     public bool staticEnemy = false;
 
     void Start()
@@ -168,14 +168,9 @@ public class EnemyController : MonoBehaviour
             if(Vector3.Distance(player.transform.position, transform.position) < attackRange)
             {
                 if(ranged)
-                {
-                    Debug.Log("Shooting");
                     FireBallAttack(player.transform.position);
-                }
                 else
-                {
                     player.GetComponent<PlayerController>().TakeDamage(attackDamage);
-                }
             }
         }
     }
