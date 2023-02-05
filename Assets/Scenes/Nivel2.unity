@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb11571bd1e5646919a091851c5387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenToTransit: TombRoom 2-3
 --- !u!4 &131463187
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ public class SceneChangerInDoor : MonoBehaviour
 {
     public Transform puerta;    
     public TombOpen tumba;
+    public string sceneToTransit;
     private bool triggered = false;
     private bool isOpen = false;
 
@@ -25,7 +26,7 @@ public class SceneChangerInDoor : MonoBehaviour
     void  Update() {
         if (Input.GetKeyDown(KeyCode.UpArrow) && tumba.finished == true && triggered == true){
             if (isOpen == true){
-                SceneManager.LoadScene("Nivel2");
+                SceneManager.LoadScene(sceneToTransit);
             }
             else{
                 Debug.Log("Pushing button");
