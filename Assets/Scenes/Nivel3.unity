@@ -3971,7 +3971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb11571bd1e5646919a091851c5387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenToTransit: 
+  screenToTransit: ExitCrypt
 --- !u!4 &1547738461
 Transform:
   m_ObjectHideFlags: 0
