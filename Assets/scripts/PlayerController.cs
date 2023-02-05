@@ -27,23 +27,24 @@ public class PlayerController : MonoBehaviour
         //Take the horizontal input to move the player
         float hInput = Input.GetAxis("Horizontal") * (trait == "Dyslexia" ? -1 : 1);
         direction.x = hInput * speed;
-        //animator.SetFloat("speed", Mathf.Abs(hInput));
+        animator.SetFloat("speed", Mathf.Abs(hInput));
 
         //Check if the player is on the ground
         bool grounded = controller.isGrounded;
-        //animator.SetBool("isGrounded", grounded);
-        if (grounded)
+        animator.SetBool("isGrounded", grounded);
+        if(grounded)
         {
             direction.y = -1;
             ableToMakeADoubleJump = true;
-            if (Input.GetButton("Jump"))
+            if(Input.GetButton("Jump"))
             {
                 Jump();
             }
 
-            if (Input.GetKeyDown(KeyCode.F))
+            if(Input.GetMouseButtonDown(0))
             {
-                //animator.SetTrigger("fireBallAttack");
+                if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+                    animator.SetTrigger("Attack");
             }
 
             if (Input.GetKeyDown(KeyCode.G))
@@ -65,9 +66,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        /*if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fireball Attack"))
-            return;*/
-
         //Flip the player
         if(hInput != 0)
         {
@@ -79,21 +77,22 @@ public class PlayerController : MonoBehaviour
         controller.Move(direction * Time.deltaTime);
 
         //Reset Z Position
-        if (transform.position.z != -1f)
-            transform.position = new Vector3(transform.position.x, transform.position.y, -1f);
+        if (transform.position.z != -1.8f)
+            transform.position = new Vector3(transform.position.x, transform.position.y, -1.8f);
 
     }
 
     private void DoubleJump()
     {
         //Double Jump
-        //animator.SetTrigger("doubleJump");
+        animator.SetTrigger("Jump");
         direction.y = jumpForce;
         ableToMakeADoubleJump = false;
     }
     private void Jump()
     {
         //Jump
+        animator.SetTrigger("Jump");
         direction.y = jumpForce;
     }
 
