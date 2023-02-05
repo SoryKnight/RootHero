@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public float gravity = -10;
     public bool ableToMakeADoubleJump = true;
     public float checkerY = -1.25f;
+    public float cooldown = 1f;
+    private float currCooldown;
 
     public Animator animator;
     public Transform model;
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        currCooldown = 0f;
     }
 
     // Update is called once per frame
@@ -42,14 +45,15 @@ public class PlayerController : MonoBehaviour
             ableToMakeADoubleJump = true;
             if(Input.GetButton("Jump"))
             {
-                if(!(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") || animator.GetAnimatorTransitionInfo(0).IsName("Idle -> Attack")))
+                if(currCooldown <= 0f)
                     Jump();
             }
 
             if(Input.GetMouseButtonDown(0))
             {
-                if(!(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack") || animator.GetAnimatorTransitionInfo(0).IsName("Idle -> Attack")))
+                if(currCooldown <= 0f)
                 {
+                    currCooldown = cooldown;
                     animator.SetTrigger("Attack");
                     Attack();
                 }
@@ -107,6 +111,8 @@ public class PlayerController : MonoBehaviour
         //Reset Z Position
         if (transform.position.z != -1.5f)
             transform.position = new Vector3(transform.position.x, transform.position.y, -1.5f);
+        
+        currCooldown -= Time.deltaTime;
 
     }
 
