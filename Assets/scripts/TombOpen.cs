@@ -24,7 +24,7 @@ public class TombOpen : MonoBehaviour
     }
 
     void  Update() {
-        if (triggered == true && Input.GetKeyDown(KeyCode.DownArrow) && finished == false) {
+        if (triggered == true && (Input.GetAxis("Vertical") < 0) && finished == false) {
             Debug.Log("Pushing button");
             Ataud.position = AtaudAbierto.position;
             Ataud.rotation = AtaudAbierto.rotation;

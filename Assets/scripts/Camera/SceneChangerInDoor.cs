@@ -24,7 +24,7 @@ public class SceneChangerInDoor : MonoBehaviour
     }
 
     void  Update() {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && tumba.finished == true && triggered == true){
+        if ((Input.GetAxis("Vertical") > 0) && tumba.finished == true && triggered == true){
             if (isOpen == true){
                 SceneManager.LoadScene(sceneToTransit);
             }
